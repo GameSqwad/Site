@@ -17,8 +17,15 @@
         margin: 0 auto;
         padding: 20px;
     }
+    .logo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .logo img {
+        max-width: 60%;
+    }
     .banner {
-        border-radius: 10px;
+        border-radius: 20px;
         overflow: hidden;
     }
     .banner img {
@@ -26,7 +33,7 @@
         height: auto;
     }
     .description {
-        margin-top: 20px;
+        margin-top: 30px;
     }
     video {
         width: 100%;
@@ -40,32 +47,57 @@
 </head>
 <body>
 <div class="container">
+    <div class="logo">
+        <img src="VS.png" alt="Логотип">
+    </div>
     <div class="banner">
-        <img src="HazbinBanner.jpg" alt="Баннер сериала">
+        <img src="HazbinBanners.jpg" alt="Баннер сериала">
         <p class="myTextClass">ОТЕЛЬ ЗАСТОЙ (сюжет) - Рождённая в Аду принцесса Чарли Морнингстар стремится осуществить свою несбыточную мечту — открыть отель, предназначенный для перевоспитания грешников. Из-за перенаселения Ада, в нём ежегодно проводятся истребления, в ходе которых ангелы во главе с Адамом спускаются с небес и убивают демонов. Чарли это расстраивает, и она хочет найти более мирное решение проблемы перенаселения, мотивируя это целью избежать убийства демонов и дать им возможность попасть в Рай</p>
     </div>
     <video id="myVideo" width="320" height="240" controls>
-    <source src="HH S1E2 IG.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-<script>
-    var elem = document.getElementById("myVideo");
+        <source src="HH_S1E1_eng.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        <track src="HH_sub_en.vtt" kind="subtitles" srclang="en" label="English">
+         <track src="HH_sub_ru.vtt" kind="subtitles" srclang="ru" label="Русский">
+    </video>
+    <div class="controls">
+        <button onclick="changeAudio('Оригинал')">Изменить озвучку</button>
+    </div>
+    <script>
+        var audioTrack = 0; // Индекс текущей озвучки
+        var subtitlesOn = true; // Флаг для отслеживания состояния субтитров
 
-    function openFullscreen() {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.mozRequestFullScreen) { // Firefox
-            elem.mozRequestFullScreen();
-        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { // IE/Edge
-            elem.msRequestFullscreen();
+        function changeAudio(language) {
+            var video = document.getElementById("myVideo");
+            video.src = language === "Оригинал" ? "HH_S1E2_EN.mp4" : "HH_S1E2_RU.mp4";
+            video.load();
+            video.play();
         }
-    }
-</script>
 
-</body>
-</html> 
+        function toggleSubtitles() {
+            var video = document.getElementById("myVideo");
+            if (video.textTracks.length > 0) {
+                var track = video.textTracks[0];
+                track.mode = track.mode === "showing" ? "hidden" : "showing";
+            }
+        }
+    </script>
+    <script>
+        var elem = document.getElementById("myVideo");
+
+        function openFullscreen() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { // Firefox
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { // IE/Edge
+                elem.msRequestFullscreen();
+            }
+        }
+    </script>
+
     <div class="navigation">
         <button>Предыдущая серия</button>
         <button>Следующая серия</button>
