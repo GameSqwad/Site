@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoiceStage</title>
+<style>
+    body {
+        background-color: #333;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .banner {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .banner img {
+        width: 100%;
+        height: auto;
+    }
+    .description {
+        margin-top: 20px;
+    }
+    video {
+        width: 100%;
+    }
+    .navigation {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="banner">
+        <img src="HazbinBanner.jpg" alt="Баннер сериала">
+        <p class="myTextClass">ОТЕЛЬ ЗАСТОЙ (сюжет) - Рождённая в Аду принцесса Чарли Морнингстар стремится осуществить свою несбыточную мечту — открыть отель, предназначенный для перевоспитания грешников. Из-за перенаселения Ада, в нём ежегодно проводятся истребления, в ходе которых ангелы во главе с Адамом спускаются с небес и убивают демонов. Чарли это расстраивает, и она хочет найти более мирное решение проблемы перенаселения, мотивируя это целью избежать убийства демонов и дать им возможность попасть в Рай</p>
+    </div>
+    <video id="myVideo" width="320" height="240" controls>
+    <source src="HH S1E2 IG.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<script>
+    var elem = document.getElementById("myVideo");
+
+    function openFullscreen() {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+        }
+    }
+</script>
+
+</body>
+</html> 
+    <div class="navigation">
+        <button>Предыдущая серия</button>
+        <button>Следующая серия</button>
+    </div>
+</div>
+</body>
+</html>
